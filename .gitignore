@@ -26,4 +26,4 @@ replay_pid*
 # dirs
 .idea/
 .gradle/*
-!.gradle/wrapper/
+!/gradle/wrapper/gradle-wrapper.jar
