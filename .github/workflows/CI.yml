@@ -2,6 +2,9 @@ name: actions-example
 
 on: push
 
+permissions:
+  contents: write 
+
 jobs:
 
   run-tests:
