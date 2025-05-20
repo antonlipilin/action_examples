@@ -1,5 +1,6 @@
 plugins {
 	id 'java'
+	id 'jacoco'
 	id 'org.springframework.boot' version '3.4.5'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
@@ -29,5 +30,22 @@ tasks.named('test') {
 
 	testLogging {
 		events "passed", "skipped", "failed"
+	}
+}
+
+jacoco {
+	toolVersion = "0.8.11"  // or latest stable version
+}
+
+test {
+	finalizedBy jacocoTestReport // generate reports after tests
+}
+
+jacocoTestReport {
+	dependsOn test
+	reports {
+		csv.required = true
+		html.required = true
+		xml.required = false
 	}
 }
